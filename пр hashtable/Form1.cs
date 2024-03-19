@@ -63,6 +63,25 @@ namespace пр_hashtable
             }
             MessageBox.Show(message);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string surname = textBox1.Text;
+            int grade = int.Parse(textBox2.Text);
+            string roomNumber = textBox3.Text;
+
+            if (students.ContainsKey(roomNumber))
+            {
+                students[roomNumber] = new Student { Surname = surname, Grade = grade };
+            }
+
+            listBox1.Items.Clear();
+            foreach (DictionaryEntry entry in students)
+            {
+                listBox1.Items.Add($"{entry.Key}: {((Student)entry.Value).Surname}, {((Student)entry.Value).Grade}");
+            }
+
+        }
     }
 }
 
